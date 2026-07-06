@@ -1,4 +1,3 @@
-# ML-Model-3-Random-Forest
 # E-Commerce Fraud Detection System (Random Forest)
 
 Welcome! This is an intelligent real-time fraud detection system for e-commerce transactions. The project features a predictive machine learning model trained in **Google Colab** using the **Random Forest** algorithm, deployed as an interactive web application via **Streamlit**.
