@@ -43,14 +43,19 @@ with col2:
 st.markdown("---")
 
 # 4. Predicción al pulsar el botón
-if st.button("🔍 Evaluar Transacción", use_container_width=True):
-    # Calculamos la variable inteligente que creamos en Colab
-    monto_por_edad = dinero_gastado / cliente_edad
+if st.button(" Evaluar Transacción", use_container_width=True):
     
-    # Orden exacto de las columnas que espera el Random Forest
-    datos_usuario = [[dinero_gastado, metodo_pago, categoria_producto, cantidad, cliente_edad, dispositivo, hora_transaccion, monto_por_edad]]
+    # Creamos el DataFrame con las 6 columnas EXACTAS y en el mismo orden que Colab espera
+    datos_usuario = pd.DataFrame([{
+        'Transaction Amount': dinero_gastado,
+        'Payment Method': metodo_pago,
+        'Product Category': categoria_producto,
+        'Quantity': cantidad,
+        'Customer Age': cliente_edad,
+        'Device Used': dispositivo
+    }])
     
-    # Hacemos la predicción
+    # Hacemos la predicción pasándole el DataFrame estructurado
     prediccion = modelo.predict(datos_usuario)
     
     # Mostramos el resultado visual
